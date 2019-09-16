@@ -273,7 +273,7 @@ configure_gluster() {
         then
             install_glusterfs_ubuntu
         fi
-        /etc/init.d/glusterfs-server start
+        systemctl start glusterd.service
     fi
 
     GLUSTERDIR="${MOUNTPOINT}/brick"
