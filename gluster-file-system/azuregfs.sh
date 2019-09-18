@@ -320,7 +320,8 @@ configure_gluster() {
     done
 
     sleep 60
-    gluster volume create ${VOLUMENAME} transport tcp ${allNodes} 2>> /tmp/error
+	#volume create gfsvol replica 4 transport tcp gluster0:/datadrive/brick1 gluster1:/datadrive/brick1 gluster2:/datadrive/brick1 gluster3:/datadrive/brick1
+    gluster volume create ${VOLUMENAME} replica 4 transport tcp ${allNodes} 2>> /tmp/error
     gluster volume info 2>> /tmp/error
     gluster volume start ${VOLUMENAME} 2>> /tmp/error
 }
